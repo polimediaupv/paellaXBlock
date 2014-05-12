@@ -49,3 +49,29 @@ You must replace `/path/to/your/block` with the path where you have downloaded t
 To deploy your block to your own hosted version of edx-platform, you need to install it
 into the virtualenv that the platform is running out of, and add to the list of ``ADVANCED_COMPONENT_TYPES``
 in ``edx-platform/cms/djangoapps/contentstore/views/component.py``.
+
+#. Using the XBlock in the course
+
+.In the Studio go to:
+
+![Settings->Advanced Settings](https://github.com/polimediaupv/paellaXBlock/blob/master/doc/img/1.png)
+
+.Add a paellavideo policy key on the advanced_modules keys
+
+![Policy key added](https://github.com/polimediaupv/paellaXBlock/blob/master/doc/img/2.png)
+
+.After that, a new button called Advanced will appear in your unit edit view
+
+![Advanced](https://github.com/polimediaupv/paellaXBlock/blob/master/doc/img/3.png)
+
+.And a new option called Paella Video player. Wich will add the component with the paella demo video to the course.
+
+![Adding paella](https://github.com/polimediaupv/paellaXBlock/blob/master/doc/img/4.png)
+
+.You can change the parameters of the video pressing the edit button.
+
+![Playing paella](https://github.com/polimediaupv/paellaXBlock/blob/master/doc/img/5.png)
+
+.Right now you can change the title of the video in the platform and the url witch must link with a paella video.
+
+![Playing paella](https://github.com/polimediaupv/paellaXBlock/blob/master/doc/img/6.png)
