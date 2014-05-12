@@ -7,7 +7,7 @@ In order to install the XBlock into your Edx devstack Server you need to.
 
 ## Download the XBlock from github. Place the files inside your server.
 ##.   Install your block::
-You must replace ``/path/to/your/block` with the path where you have downloaded the xblock
+You must replace `/path/to/your/block` with the path where you have downloaded the xblock
 
         $ vagrant ssh
         vagrant@precise64:~$ sudo -u edxapp /edx/bin/pip.edxapp install /path/to/your/block
