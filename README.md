@@ -5,13 +5,14 @@ You can easily integrate the XBlock into Edx and start to use the player.
 ## Installation instructions ##
 In order to install the XBlock into your Edx devstack Server you need to.
 
-#. Download the XBlock from github. Place the files inside your server.
-#.  Install your block::
+## Download the XBlock from github. Place the files inside your server.
+##.   Install your block::
+You must replace ``/path/to/your/block` with the path where you have downloaded the xblock
 
         $ vagrant ssh
         vagrant@precise64:~$ sudo -u edxapp /edx/bin/pip.edxapp install /path/to/your/block
 
-#.  Enable the block
+##.  Enable the block
 
     #.  In ``edx-platform/lms/envs/common.py``, uncomment::
 
@@ -31,19 +32,19 @@ In order to install the XBlock into your Edx devstack Server you need to.
 
             'ALLOW_ALL_ADVANCED_COMPONENTS': True,
 
-#.  Add the block to your courses' advanced settings in Studio
+##.  Add the block to your courses' advanced settings in Studio
 
     #. Log in to Studio, and open your course
     #. Settings -> Advanced Settings
     #. Change the value for the key ``"advanced_modules"`` to ``paellavideo``
 
 
-#.  Add your block into your course
+##.  Add your block into your course
 
     #. Edit a unit
     #. Advanced -> your-block
 
-#. Deploying your XBlock
+##. Deploying your XBlock
 
 To deploy your block to your own hosted version of edx-platform, you need to install it
 into the virtualenv that the platform is running out of, and add to the list of ``ADVANCED_COMPONENT_TYPES``
