@@ -21,8 +21,18 @@ class paellaXBlock(XBlock):
                   scope=Scope.content,
                   help="Video in Paella Player")
 
+    server = String(display_name="server",
+                  default="http://matterhorn.cc.upv.es:8080/paella3.0/ui/embed.html?server=&id=",
+                  scope=Scope.content,
+                  help="Server with the Paella Player")
+
+    video_id = String(display_name="id",
+                  default="e2af6698-59cf-479c-90b8-f8900d403ef9",
+                  scope=Scope.content,
+                  help="Id of the Paella Video")
+
     display_name = String(display_name="Display Name",
-                          default="Paella Video Player",
+                          default="Paella Video",
                           scope=Scope.settings,
                           help="Name of the component in the edxplatform")
 
@@ -38,7 +48,8 @@ class paellaXBlock(XBlock):
         """
         # Just to show data coming in...
         #assert data['hello'] == 'world'
-        self.href = data['href']
+        self.server = data['server']
+        self.video_id = data['video_id']
         self.display_name = data['display_name']
 
         return {

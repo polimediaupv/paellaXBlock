@@ -1,21 +1,35 @@
 <div class="wrapper-comp-settings is-active editor-with-buttons " id="settings-tab">
-  <ul class="list-input settings-list">
-      <li class="field comp-setting-entry is-set">
-            <div class="wrapper-videolist-url videolist-settings-item">
-                <label class="label setting-label">Title</label>
-                <input class="input setting-input edit-display-name" id="edit_display_name" value="{self.display_name}" type="text">
-                <span class="tip setting-help">The title of the Paella Video that is displayed to the user</span>
-            </div>
-      </li>
-      <li class="field comp-setting-entry is-set">
-            <div class="wrapper-videolist-url videolist-settings-item">
-                <label class="label setting-label">Url</label>
-                <input class="input setting-input edit-display-name" id="edit_href" value="{self.href}" type="text">
-                <span class="tip setting-help">The Url of the paella video</span>
-            </div>
-      </li>
-  </ul>
-    <div class="xblock-actions">
+          <ul class="list-input settings-list">
+              <li class="field comp-setting-entry is-set">
+                    <div class="wrapper-videolist-url videolist-settings-item">
+                        <label class="label setting-label">Title</label>
+                        <input class="input setting-input edit-display-name" id="edit_display_name" value="{self.display_name}" type="text">
+                        <span class="tip setting-help">The title of the Paella Video that is displayed to the user</span>
+                    </div>
+              </li>
+              <li class="field comp-setting-entry is-set">
+                    <label class="label setting-label">Server</label>
+                    <input hidden id="server_value" value="{self.server}"/>
+                    <select name="Server" id="edit_server">
+                           <option value="">----</option>
+                           <option value="https://media.upv.es/player/?id="> media.upv.es</option>
+                           <option value="http://matterhorn.cc.upv.es:8080/paella3.0/ui/embed.html?server=&id="> matterhorn.cc.upv.es</option>>
+                    </select>
+                    <span class="tip setting-help">The server of the paella video</span>
+
+              </li>
+              <li class="field comp-setting-entry is-set">
+                    <div class="wrapper-videolist-url videolist-settings-item">
+                        <label class="label setting-label">Video ID</label>
+                        <input class="input setting-input edit-display-name" id="edit_video_id" value="{self.video_id}" type="text">
+                        <span class="tip setting-help">The ID of the paella video</span>
+                    </div>
+              </li>
+              <li class="field comp-setting-entry is-set">
+                  <a href="#" class="button">Add problems</a>
+              </li>
+          </ul>
+      <div class="xblock-actions">
         <span class="xblock-editor-error-message"></span>
         <ul>
             <li class="action-item">
@@ -26,4 +40,6 @@
             </li>
         </ul>
     </div>
-</div>
+  </div>
+
+

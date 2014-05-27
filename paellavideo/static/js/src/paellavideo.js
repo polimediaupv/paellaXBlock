@@ -2,7 +2,8 @@
 function paellaXBlock(runtime, element) {
 
     function paellaSaved(result) {
-        $('.href', element).text(result.href);
+        $('.server', element).text();
+        $('.video_id', element).text(result.video_id);
         $('.display_name', element).text(result.display_name);
     }
 
@@ -13,7 +14,8 @@ function paellaXBlock(runtime, element) {
     $(element).find('.save-button').bind('click', function() {
         var data = {
             'display_name': $(edit_display_name).context.value,
-            'href': $(edit_href).context.value
+            'server':$(edit_server).context.value,
+            'video_id': $(edit_video_id).context.value
         };
 
         $('.xblock-editor-error-message', element).html();
@@ -32,6 +34,7 @@ function paellaXBlock(runtime, element) {
 
     $(function ($) {
         /* Here's where you'd do things on page load. */
+        /*$('#edit_server option[value="https://media.upv.es/player/?id="]')*/
     });
 }
 
