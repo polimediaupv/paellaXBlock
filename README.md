@@ -6,6 +6,21 @@ You can easily integrate the XBlock into Edx and start to use the player.
 In order to install the XBlock into your Edx devstack Server you need to.
 
 ## Download the XBlock from github. Place the files inside your server.
+
+## (OPTIONAL) Modify paellaservers.py so it contains your paella servers
+    PAELLASERVERS = [
+        {
+            'name':'mediaupv',
+            'url':'https://media.upv.es/player/?id='
+        },
+        {
+            'name':'matterhorn',
+            'url':'http://matterhorn.cc.upv.es:8080/paella3.0/ui/embed.html?server=&id='
+        }
+    ]
+## (OPTIONAL) Modify paellavideo.py and default values to server and videoid
+    In case you don't need to show your own video as default you can use the ones included.
+
 ##.   Install your block::
 You must replace `/path/to/your/block` with the path where you have downloaded the xblock
 

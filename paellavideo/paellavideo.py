@@ -6,6 +6,7 @@ import pkg_resources
 from xblock.core import XBlock
 from xblock.fields import Scope, Integer, String
 from xblock.fragment import Fragment
+import paellaservers
 
 
 class paellaXBlock(XBlock):
@@ -15,12 +16,6 @@ class paellaXBlock(XBlock):
 
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
-
-    href = String(display_name="href",
-                  default="http://matterhorn.cc.upv.es:8080/paella3.0/ui/embed.html?server=&id=e2af6698-59cf-479c-90b8-f8900d403ef9",
-                  scope=Scope.content,
-                  help="Video in Paella Player")
-
     server = String(display_name="server",
                   default="http://matterhorn.cc.upv.es:8080/paella3.0/ui/embed.html?server=&id=",
                   scope=Scope.content,
@@ -65,14 +60,27 @@ class paellaXBlock(XBlock):
         frag = Fragment(html.format(self=self))
         return frag
 
+
+
     # TO-DO: change this view to display your data your own way.
     def studio_view(self, context=None):
-        """
-        The primary view of the paellaXBlock, shown to students
-        when viewing courses.
-        """
         html = self.resource_string("static/html/paellavideo_edit.html")
-        frag = Fragment(html.format(self=self))
+
+        options = "<option value=''  >----</option>"
+        for key in paellaservers.PAELLASERVERS:
+            if self.server ==key['url']:
+                options = options + "<option value='" + key['url'] + "' selected='selected' >" + key['name'] + "</option>"
+            else:
+                options = options + "<option value='" + key['url'] + "' >" + key['name'] + "</option>"
+
+        selector=u"""
+            <script type="text/template" id="xblock-equality-template">
+            </script>
+            <select name='Server' id='edit_server'>
+            {}
+            </select>""".format(options)
+
+        frag = Fragment(html.format(self=self,selector=selector))
         frag.add_javascript(self.resource_string("static/js/src/paellavideo.js"))
         frag.initialize_js('paellaXBlock')
         return frag
