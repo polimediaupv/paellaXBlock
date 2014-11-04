@@ -18,5 +18,9 @@ PAELLASERVERS = [
     {
         'name':'paellatest',
         'url':'http://paellaplayer.upv.es/demo/player_400/index.html?id='
+    },
+    {
+        'name':'videoapuntes',
+        'url':'http://videoapuntes-engage.upv.es:8080/engage/ui/embed.html?id='
     }
 ]
