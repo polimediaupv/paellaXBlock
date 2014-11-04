@@ -1,40 +1,31 @@
+/**
+ * Created by leosamu on 29/10/14.
+ */
 /* Javascript for paellaXBlock. */
 function paellaXBlock(runtime, element) {
 
-    function paellaSaved(result) {
-        $('.server', element).text();
-        $('.video_id', element).text(result.video_id);
-        $('.display_name', element).text(result.display_name);
-    }
+    console.log($("iframe",element)[0]);
 
-    $(element).find('.cancel-button').bind('click', function() {
-        runtime.notify('cancel', {});
-    });
-
-    $(element).find('.save-button').bind('click', function() {
-        var data = {
-            'display_name': $(edit_display_name).context.value,
-            'server':$(edit_server).context.value,
-            'video_id': $(edit_video_id).context.value
-        };
-
-        $('.xblock-editor-error-message', element).html();
-        $('.xblock-editor-error-message', element).css('display', 'none');
-        var handlerUrl = runtime.handlerUrl(element, 'save_paella');
-        $.post(handlerUrl, JSON.stringify(data)).done(function(response) {
-            if (response.result === 'success') {
-                window.location.reload(false);
-            } else {
-                $('.xblock-editor-error-message', element).html('Error: '+response.message);
-                $('.xblock-editor-error-message', element).css('display', 'block');
+    $($("iframe",element)[0]).on('load',function(){
+        setTimeout(function(){
+            start = $("[name='trimstart']")[0].value;
+            end = $("[name='trimend']")[0].value;
+            if (start < end && end>0){
+                $("iframe",element)[0].contentWindow.postMessage({event:'paella:settrim',params:{trimEnabled:true,trimStart:start,trimEnd:end}},"http://paellaplayer.upv.es");
             }
-        });
+
+        }, 300);
+
     });
 
 
     $(function ($) {
         /* Here's where you'd do things on page load. */
         /*$('#edit_server option[value="https://media.upv.es/player/?id="]')*/
+
+        //document.getElementById("paella").contentWindow.postMessage({event:'paella:settrim',params:{trimEnabled:true,trimStart:20,trimEnd:30}},"http://paellaplayer.upv.es");
+
     });
+
 }
 

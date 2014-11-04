@@ -1,4 +1,10 @@
-__author__ = 'leosamu'
+# coding=utf-8
+__author__ = u"Leonardo Salom Muñoz"
+__credits__ = u"Leonardo Salom Muñoz"
+__version__ = u"0.0.3-SNAPSHOT"
+__maintainer__ = u"Leonardo Salom Muñoz"
+__email__ = u"leosamu@upv.es"
+__status__ = u"Development"
 
 PAELLASERVERS = [
     {
@@ -8,5 +14,9 @@ PAELLASERVERS = [
     {
         'name':'matterhorn',
         'url':'http://matterhorn.cc.upv.es:8080/paella3.0/ui/embed.html?server=&id='
+    },
+    {
+        'name':'paellatest',
+        'url':'http://paellaplayer.upv.es/demo/player_400/index.html?id='
     }
 ]
